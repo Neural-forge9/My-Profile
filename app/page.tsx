@@ -2,15 +2,17 @@ import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { skills } from "@/data/skills";
 import { experience } from "@/data/experience";
-import { Download, Linkedin, Mail } from "lucide-react";
+import { ChevronDown, Download, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 
+const showResumeDownload = false;
+
 export default function Home() {
   return (
-    <main className="space-y-24">
+    <main className="space-y-16 md:space-y-24">
       {/* Hero Section */}
-      <section className="space-y-6">
+      <section className="relative space-y-5 pb-14 md:space-y-6 md:pb-0">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
           Navdeep Singh
         </h1>
@@ -18,16 +20,12 @@ export default function Home() {
           Software Developer building AI-powered product experiences.
         </h2>
         <p className="text-gray-400 max-w-2xl leading-relaxed text-lg">
-          I build user-facing web and mobile workflows using React, Next.js, React Native, TypeScript, APIs, and AI-assisted development. Currently focused on AI product workflows, UX execution, and full-stack product engineering.
+          I build user-facing web and mobile products with React, Next.js, React Native, and TypeScript. I’m currently focused on AI-powered product workflows, strong UX execution, and growing into full-stack product engineering.
         </p>
-        <div className="flex flex-wrap gap-4 pt-4">
+        <div className="flex flex-wrap gap-4 pt-3 md:pt-4">
           <Link href="#projects" className="inline-flex items-center justify-center rounded-md bg-[#d2ff36] px-5 py-2.5 text-sm font-semibold text-black hover:bg-[#d2ff36]/90 transition-colors">
             View Projects
           </Link>
-          <a href="/navdeep-singh-resume.pdf" download className="inline-flex items-center justify-center rounded-md border border-gray-700 bg-transparent px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 transition-colors">
-            <Download className="mr-2 h-4 w-4" />
-            Resume
-          </a>
           <div className="flex gap-4 ml-auto items-center">
             <a href="https://www.linkedin.com/in/navdeepsingh1600/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
               <Linkedin className="h-5 w-5" />
@@ -36,6 +34,11 @@ export default function Home() {
               <Mail className="h-5 w-5" />
             </a>
           </div>
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent via-[#0f1115]/80 to-[#0f1115] md:hidden" aria-hidden="true" />
+        <div className="relative z-10 flex items-center gap-2 pt-2 text-xs font-medium uppercase tracking-[0.18em] text-gray-500 md:hidden">
+          <span>Scroll</span>
+          <ChevronDown className="scroll-cue-motion h-4 w-4 text-[#d2ff36] motion-reduce:animate-none" aria-hidden="true" />
         </div>
       </section>
 
@@ -111,10 +114,16 @@ export default function Home() {
         <p className="text-gray-400 max-w-md mx-auto">
           I am open to software developer, frontend, AI product engineering, and product-minded full-stack roles.
         </p>
-        <div className="pt-4">
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
           <a href="mailto:nvdeep0110@gmail.com" className="inline-flex items-center justify-center rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-black hover:bg-gray-100 transition-colors">
             Email Me
           </a>
+          {showResumeDownload && (
+            <a href="/navdeep-singh-resume.pdf" download className="inline-flex items-center justify-center rounded-md border border-gray-700 bg-transparent px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-800 transition-colors">
+              <Download className="mr-2 h-4 w-4" />
+              Resume
+            </a>
+          )}
         </div>
       </section>
     </main>
