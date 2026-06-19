@@ -1,7 +1,7 @@
 import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { skills } from "@/data/skills";
-import { experience } from "@/data/experience";
+import { ExperienceSection } from "@/components/ExperienceSection";
 import { ChevronDown, Download, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
@@ -58,34 +58,7 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section className="space-y-8">
-        <div className="space-y-2">
-          <h3 className="text-2xl font-bold text-white">Current Work</h3>
-          <p className="text-gray-400">
-            My experience spans software development, cloud support, operational systems, analytics, and product-facing technical support.
-          </p>
-        </div>
-        <div className="space-y-8">
-          {experience.map((exp, idx) => (
-            <div key={idx} className="relative pl-6 border-l border-gray-700 pb-2">
-              <div className="absolute w-3 h-3 bg-[#d2ff36] rounded-full -left-[6.5px] top-1.5" />
-              <div className="mb-2">
-                <h4 className="text-lg font-bold text-white">{exp.role}</h4>
-                <p className="text-gray-400 text-sm">{exp.company} • {exp.period}</p>
-              </div>
-              <p className="text-gray-300 mb-4 text-sm leading-relaxed">{exp.description}</p>
-              <ul className="space-y-3">
-                {exp.bullets.map((bullet, i) => (
-                   <li key={i} className="text-gray-400 text-sm flex items-start">
-                     <span className="text-gray-600 mr-2 mt-0.5">•</span>
-                     {bullet}
-                   </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ExperienceSection />
 
       {/* Skills */}
       <section className="space-y-8">
