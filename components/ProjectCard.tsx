@@ -34,7 +34,7 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
         <div className="mt-4 md:mt-0 flex shrink-0 items-center text-gray-500 group-hover:text-[#d2ff36] transition-colors md:pl-6">
-           <span className="text-sm font-medium mr-2">Read Case Study</span>
+           <span className="text-sm font-medium mr-2">Elaborate</span>
            <ArrowRight className="h-4 w-4" />
         </div>
       </div>
