@@ -44,29 +44,31 @@ export const projects: Project[] = [
     ]
   },
   {
-    slug: "churn-prediction",
-    title: "Customer Churn Prediction & Analytics",
-    category: "Data & Machine Learning",
-    summary: "Built a churn prediction workflow to identify high-risk users and translate model results into retention-focused product insights.",
-    stack: ["Python", "SQL", "Pandas", "Scikit-learn", "Classification Models"],
-    problem: "Businesses often fail to proactively identify an at-risk user until they have already churned.",
-    solution: "Developed an end-to-end data pipeline and classification model to flag vulnerable users and inform retention strategies.",
+    slug: "productops-dashboard",
+    title: "ProductOps Dashboard",
+    category: "Application Development",
+    summary: "Designed a SaaS-style operations dashboard for managing projects, users, tasks, activity logs, and product metrics with a clean React and Next.js interface.",
+    stack: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    problem: "Product and operations teams need one reliable workspace to track project health, user activity, ownership, and task progress without jumping between disconnected tools.",
+    solution: "Built a role-aware dashboard concept with authenticated views, structured data tables, project status tracking, task workflows, activity feeds, and metric cards backed by Supabase.",
     features: [
-      "Exploratory data analysis (EDA)",
-      "Automated feature engineering",
-      "User segmentation based on engagement",
-      "Classification modeling (Random Forest, Logistic Regression)",
-      "Retention prioritization insights"
+      "Project, task, and user management views",
+      "Role-aware dashboard sections",
+      "Searchable and filterable data tables",
+      "Activity timeline for operational updates",
+      "Status cards for product and team metrics",
+      "Responsive interface for desktop and mobile workflows"
     ],
     techDecisions: [
-      "Python and Pandas for powerful data manipulation",
-      "Scikit-learn for accessible and robust classification modeling",
-      "Translated technical evaluation metrics (F1, Recall) into plain business/product priorities"
+      "Used Next.js and TypeScript for route structure, typed data models, and maintainable UI logic",
+      "Used Supabase and PostgreSQL for authentication-ready data storage and relational project records",
+      "Used Tailwind CSS for a consistent dashboard layout with reusable cards, tables, and status elements",
+      "Kept the interface focused on operational clarity: fast scanning, clear hierarchy, and predictable actions"
     ],
     learnings: [
-      "Bridging the gap between raw data outputs and actionable product features",
-      "Managing class imbalance in real-world tabular datasets",
-      "Engineering predictive features from raw transactional data"
+      "Designing information-dense dashboards that remain readable",
+      "Structuring product data around real user workflows instead of isolated screens",
+      "Balancing frontend polish with backend-ready data modelling"
     ]
   },
   {

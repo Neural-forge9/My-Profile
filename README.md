@@ -70,11 +70,11 @@ A full-stack healthcare web application with role-based dashboards, appointment 
 
 Tech stack: Next.js, React, TypeScript, Rust Actix, MariaDB, JWT, WebSockets.
 
-### Customer Churn Prediction & Retention Analytics
+### ProductOps Dashboard
 
-A churn analytics workflow covering data cleaning, exploratory analysis, feature engineering, model evaluation, customer segmentation, and retention-focused prioritisation insights.
+A SaaS-style operations dashboard for managing projects, users, tasks, activity logs, and product metrics through a clean React and Next.js interface.
 
-Tech stack: Python, SQL, Pandas, Scikit-learn, classification models.
+Tech stack: Next.js, React, TypeScript, Supabase, PostgreSQL, Tailwind CSS.
 
 ### Direct Mail Acquisition Optimisation
 
