@@ -9,44 +9,6 @@ import { Badge } from "@/components/ui/Badge";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <header className="border-b border-border bg-background/95 backdrop-blur">
-        <div className="editorial-container flex min-h-20 items-center justify-between gap-6">
-          <Link href="/" className="group inline-flex items-center gap-3">
-            <span className="flex size-8 items-center justify-center border border-border bg-card font-mono text-xs font-semibold transition-colors group-hover:border-foreground/40">
-              NS
-            </span>
-            <span>
-              <span className="block text-sm font-medium leading-none text-foreground">
-                Navdeep Singh
-              </span>
-              <span className="mt-1 block text-xs text-muted-foreground">
-                Software Developer
-              </span>
-            </span>
-          </Link>
-
-          <nav className="hidden items-center gap-10 text-sm font-medium text-muted-foreground md:flex">
-            <Link href="#projects" className="transition-colors hover:text-foreground">
-              Projects
-            </Link>
-            <Link href="#experience" className="transition-colors hover:text-foreground">
-              Experience
-            </Link>
-            <Link href="#skills" className="transition-colors hover:text-foreground">
-              Skills
-            </Link>
-          </nav>
-
-          <a
-            href="mailto:nvdeep0110@gmail.com"
-            className="inline-flex items-center justify-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Contact
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-        </div>
-      </header>
-
       <section className="border-b border-border bg-card/80">
         <div className="editorial-container py-20 md:py-28">
           <div className="max-w-5xl">
