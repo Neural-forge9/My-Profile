@@ -8,6 +8,7 @@ import {
   primaryExperience,
 } from "@/data/experience";
 import { cn } from "@/lib/utils";
+import { PortfolioSection } from "@/components/PortfolioSection";
 
 function ExperienceItem({
   experience,
@@ -52,24 +53,18 @@ export function ExperienceSection() {
   const additionalExperienceId = useId();
 
   return (
-    <section className="space-y-8">
-      <div className="max-w-3xl space-y-4">
-        <p className="section-kicker">Professional timeline</p>
-        <h2 className="text-4xl font-normal tracking-[-0.035em] text-foreground md:text-5xl">
-          Current Work
-        </h2>
-        <p className="text-lg leading-8 text-muted-foreground">
-          My experience spans software development, cloud support, operational
-          systems, analytics, and product-facing technical support.
-        </p>
-      </div>
-
+    <PortfolioSection
+      kicker="Professional timeline"
+      title="Current Work"
+      description="My experience spans software development, cloud support, operational systems, analytics, and product-facing technical support."
+      variant="panel"
+    >
       <div className="relative space-y-6">
-        <div className="relative">
+        <div className="relative overflow-hidden rounded-lg border border-border/70 bg-background/20 p-5">
           <ExperienceItem experience={primaryExperience} isPrimary />
           {!isExpanded && additionalExperience.length > 0 && (
             <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent via-background/75 to-background"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 rounded-b-lg bg-gradient-to-b from-transparent via-card/70 to-card/95"
               aria-hidden="true"
             />
           )}
@@ -80,7 +75,7 @@ export function ExperienceSection() {
           aria-expanded={isExpanded}
           aria-controls={additionalExperienceId}
           onClick={() => setIsExpanded((current) => !current)}
-          className="group inline-flex items-center gap-2 border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-foreground/40 hover:bg-secondary/40 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+          className="pill-control group gap-2 px-5 py-3 font-semibold text-foreground"
         >
           <span>{isExpanded ? "Hide experience" : "More experience"}</span>
           <ChevronDown
@@ -125,6 +120,6 @@ export function ExperienceSection() {
           </div>
         </div>
       </div>
-    </section>
+    </PortfolioSection>
   );
 }

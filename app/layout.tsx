@@ -3,6 +3,7 @@ import './globals.css';
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/SiteHeader";
+import { LiquidGradientBackground } from "@/components/LiquidGradientBackground";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -15,8 +16,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={cn("dark font-sans", inter.variable)}>
       <body className="min-h-screen bg-background text-foreground antialiased" suppressHydrationWarning>
+        <LiquidGradientBackground />
         <SiteHeader />
-        {children}
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );

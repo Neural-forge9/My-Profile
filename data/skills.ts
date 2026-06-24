@@ -1,7 +1,7 @@
 export const skills = [
   {
     category: "Frontend & Product UI",
-    items: ["React", "Next.js", "React Native", "TypeScript", "Tailwind CSS", "shadcn/ui"]
+    items: ["React", "Next.js", "React Native", "TypeScript", "Three.js", "Tailwind CSS", "shadcn/ui"]
   },
   {
     category: "AI Product Development",
@@ -9,7 +9,7 @@ export const skills = [
   },
   {
     category: "Backend & APIs",
-    items: ["Node.js", "REST APIs", "JWT", "WebSockets", "SQL", "Rust"]
+    items: ["Node.js", "Express.js", "REST APIs", "JWT", "WebSockets", "SQL", "Rust"]
   },
   {
     category: "Data & Analytics",
