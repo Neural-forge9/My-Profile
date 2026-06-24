@@ -4,19 +4,20 @@ import { skills } from "@/data/skills";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ArrowUpRight, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import { Badge } from "@/components/ui/Badge";
+import { StatusBadge } from "@/components/StatusBadge";
+import { PortfolioSection } from "@/components/PortfolioSection";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <section className="border-b border-border bg-card/80">
+      <section className="border-b border-border bg-card/50 backdrop-blur-xl">
         <div className="editorial-container py-20 md:py-28">
           <div className="max-w-5xl">
             <span className="inline-flex border border-border bg-secondary/40 px-3 py-1.5 font-mono text-[0.7rem] font-medium uppercase tracking-[0.08em] text-foreground">
               Available for frontend and full-stack roles
             </span>
             <h1 className="mt-8 max-w-4xl text-[2.4rem] font-normal leading-[1.05] tracking-[-0.04em] text-foreground md:text-[3.6rem]">
-              Software Developer building React, Next.js, and TypeScript product experiences.
+              Software Developer building modern web products and AI-powered experiences.
             </h1>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-muted-foreground md:text-xl md:leading-9">
               I build user-facing web and mobile products with a focus on clean application architecture, reliable UI workflows, API integration, and product-minded execution.
@@ -24,12 +25,9 @@ export default function Home() {
 
             <div className="mt-8 flex flex-wrap items-center gap-0">
               {["React", "Next.js", "TypeScript", "Supabase", "Product UI"].map((item) => (
-                <span
-                  key={item}
-                  className="border border-border px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.08em] text-foreground"
-                >
+                <StatusBadge key={item} className="rounded-none px-4 py-2">
                   {item}
-                </span>
+                </StatusBadge>
               ))}
             </div>
 
@@ -66,22 +64,18 @@ export default function Home() {
 
       <div className="editorial-container py-16 md:py-24">
         <div className="space-y-24 md:space-y-32">
-          <section id="projects" className="space-y-8">
-            <div className="max-w-3xl space-y-4">
-              <p className="section-kicker">Selected application work</p>
-              <h2 className="text-4xl font-normal tracking-[-0.035em] text-foreground md:text-5xl">
-                Featured Projects
-              </h2>
-              <p className="text-lg leading-8 text-muted-foreground">
-                Projects focused on React, Next.js, TypeScript, full-stack workflows, analytics, and user-facing software systems.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-px border border-border bg-border">
+          <PortfolioSection
+            id="projects"
+            kicker="Selected application work"
+            title="Featured Projects"
+            description="Projects focused on React, Next.js, TypeScript, full-stack workflows, analytics, and user-facing software systems."
+          >
+            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border bg-border/60">
               {projects.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </div>
-          </section>
+          </PortfolioSection>
 
           <div id="experience">
             <ExperienceSection />
@@ -94,19 +88,21 @@ export default function Home() {
                 Skills
               </h2>
             </div>
-            <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
+            <div className="glass-surface overflow-hidden border">
               {skills.map((skillGroup) => (
-                <div key={skillGroup.category} className="bg-card p-6 md:p-8">
-                  <h3 className="section-kicker">{skillGroup.category}</h3>
-                  <div className="mt-5 flex flex-wrap gap-2">
+                <div
+                  key={skillGroup.category}
+                  className="grid gap-4 border-b border-border/70 px-4 py-4 last:border-b-0 md:grid-cols-[220px_minmax(0,1fr)] md:items-start md:px-5 md:py-4"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="hidden h-7 w-px bg-primary/45 md:block" aria-hidden="true" />
+                    <h3 className="pill-label">{skillGroup.category}</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
                     {skillGroup.items.map((item) => (
-                      <Badge
-                        key={item}
-                        variant="outline"
-                        className="border-border bg-secondary/40 px-3 py-1.5 font-mono text-[0.7rem] font-medium uppercase tracking-[0.08em] text-foreground hover:bg-secondary"
-                      >
+                      <StatusBadge key={item} className="px-2.5 py-1">
                         {item}
-                      </Badge>
+                      </StatusBadge>
                     ))}
                   </div>
                 </div>
@@ -114,16 +110,12 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="grid border border-border bg-card md:grid-cols-[1fr_420px]">
-            <div className="p-8 md:p-12">
-              <p className="section-kicker">Contact</p>
-              <h2 className="mt-5 max-w-2xl text-4xl font-normal tracking-[-0.035em] text-foreground md:text-5xl">
-                Ready to work together?
-              </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-                I am open to software developer, frontend, AI product engineering, and product-minded full-stack roles.
-              </p>
-            </div>
+          <PortfolioSection
+            kicker="Contact"
+            title="Ready to work together?"
+            description="I am open to software developer, frontend, AI product engineering, and product-minded full-stack roles."
+            variant="split"
+          >
             <div className="border-t border-border p-8 md:border-l md:border-t-0 md:p-10">
               <h3 className="text-xl font-normal text-foreground">What I bring</h3>
               <ul className="mt-6 space-y-4 text-sm text-muted-foreground">
@@ -146,7 +138,7 @@ export default function Home() {
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
-          </section>
+          </PortfolioSection>
         </div>
       </div>
     </main>

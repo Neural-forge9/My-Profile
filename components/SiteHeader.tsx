@@ -13,7 +13,7 @@ export function SiteHeader() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="border-b border-border bg-background/95 backdrop-blur">
+    <header className="relative z-20 border-b border-border bg-background/95 backdrop-blur">
       <div className="editorial-container relative flex min-h-20 items-center justify-between gap-6">
         <Link
           href="/"
@@ -35,14 +35,14 @@ export function SiteHeader() {
 
         {isHome && (
           <div className="flex items-center gap-4 md:gap-6">
-            <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 text-sm font-medium text-muted-foreground md:flex">
-              <Link href="#projects" className="transition-colors hover:text-foreground">
+            <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-2 md:flex">
+              <Link href="#projects" className="pill-control">
                 Projects
               </Link>
-              <Link href="#experience" className="transition-colors hover:text-foreground">
+              <Link href="#experience" className="pill-control">
                 Experience
               </Link>
-              <Link href="#skills" className="transition-colors hover:text-foreground">
+              <Link href="#skills" className="pill-control">
                 Skills
               </Link>
             </nav>
@@ -76,25 +76,13 @@ export function SiteHeader() {
       {isHome && isMenuOpen && (
         <div id="mobile-site-navigation" className="border-t border-border bg-card md:hidden">
           <nav className="editorial-container grid gap-px bg-border py-px">
-            <Link
-              href="#projects"
-              className="bg-card px-4 py-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-              onClick={closeMenu}
-            >
+            <Link href="#projects" className="pill-control justify-start rounded-none px-4 py-4" onClick={closeMenu}>
               Projects
             </Link>
-            <Link
-              href="#experience"
-              className="bg-card px-4 py-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-              onClick={closeMenu}
-            >
+            <Link href="#experience" className="pill-control justify-start rounded-none px-4 py-4" onClick={closeMenu}>
               Experience
             </Link>
-            <Link
-              href="#skills"
-              className="bg-card px-4 py-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-              onClick={closeMenu}
-            >
+            <Link href="#skills" className="pill-control justify-start rounded-none px-4 py-4" onClick={closeMenu}>
               Skills
             </Link>
             <a

@@ -1,11 +1,11 @@
 import { Project } from "@/data/projects";
-import { Badge } from "@/components/ui/Badge";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { StatusBadge } from "@/components/StatusBadge";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group relative bg-card p-6 transition-colors hover:bg-secondary/30 md:p-8">
+    <div className="glass-surface glass-surface-hover group relative p-6 md:p-8">
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="space-y-4 flex-1">
           <div className="space-y-2">
@@ -22,21 +22,14 @@ export function ProjectCard({ project }: { project: Project }) {
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
             {project.stack.slice(0, 5).map((tech, i) => (
-              <Badge
-                key={i}
-                variant="outline"
-                className="border-border bg-secondary/40 font-mono text-[0.68rem] font-medium uppercase tracking-[0.08em] text-foreground"
-              >
+              <StatusBadge key={i}>
                 {tech}
-              </Badge>
+              </StatusBadge>
             ))}
             {project.stack.length > 5 && (
-              <Badge
-                variant="outline"
-                className="border-border bg-secondary/40 font-mono text-[0.68rem] font-medium uppercase tracking-[0.08em] text-muted-foreground"
-              >
+              <StatusBadge tone="muted">
                 +{project.stack.length - 5}
-              </Badge>
+              </StatusBadge>
             )}
           </div>
         </div>
