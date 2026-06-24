@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/SiteHeader";
 import { LiquidGradientBackground } from "@/components/LiquidGradientBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -21,6 +22,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <div className="relative z-10">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
