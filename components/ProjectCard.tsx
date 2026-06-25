@@ -2,10 +2,11 @@ import { Project } from "@/data/projects";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { StatusBadge } from "@/components/StatusBadge";
+import { SurfaceCard } from "@/components/SurfaceCard";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="glass-surface glass-surface-hover group relative p-6 md:p-8">
+    <SurfaceCard interactive className="group relative p-6 md:p-8">
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="space-y-4 flex-1">
           <div className="space-y-2">
@@ -38,6 +39,6 @@ export function ProjectCard({ project }: { project: Project }) {
            <ArrowRight className="h-4 w-4" />
         </div>
       </div>
-    </div>
+    </SurfaceCard>
   );
 }

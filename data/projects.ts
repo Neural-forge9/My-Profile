@@ -13,7 +13,37 @@ export interface Project {
   githubUrl?: string;
 }
 
+export interface ProjectMention {
+  title: string;
+  summary: string;
+  stack: string[];
+}
+
 export const projects: Project[] = [
+  {
+    slug: "productops-dashboard",
+    title: "Web3 Wallet Application",
+    category: "Application Development",
+    summary: "Built wallet workflows across activity, token management, authentication, token details, network filters, RPC handling, and state-driven dashboard rendering.",
+    stack: ["React Native", "TypeScript", "APIs", "RPC", "State Management"],
+    problem: "Wallet applications need reliable token visibility, network-aware state, secure setup flows, and resilient blockchain request handling across unstable provider responses.",
+    solution: "Built reusable React Native wallet workflows with token search, network filtering, toggle states, composite token/network logos, empty states, and improved RPC fallback handling.",
+    features: [
+      "Built Activity screen, Manage Tokens, Dashboard Token List, Password setup, Confirm Password, Verify PIN, and token details.",
+      "Implemented network filters, token toggles, token search, reusable UI rows, composite logos, empty states, and route-level navigation.",
+      "Fixed RPC call handling for blockchain networks, improving failed request recovery, provider fallback behavior, and network-specific token rendering."
+    ],
+    techDecisions: [
+      "Used React Native and TypeScript for typed wallet UI workflows and reusable token row components",
+      "Used state-driven rendering to handle dashboard token visibility, toggles, loading states, and empty states",
+      "Improved RPC handling for provider fallback, failed request recovery, and network-specific token rendering"
+    ],
+    learnings: [
+      "Designing wallet flows that stay predictable across changing network and token states",
+      "Handling blockchain provider failures without breaking user-facing workflows",
+      "Keeping mobile UI components reusable while supporting route-level navigation requirements"
+    ]
+  },
   {
     slug: "healthcare-platform",
     title: "Role-Based Healthcare Platform",
@@ -44,34 +74,6 @@ export const projects: Project[] = [
     ]
   },
   {
-    slug: "productops-dashboard",
-    title: "ProductOps Dashboard",
-    category: "Application Development",
-    summary: "Designed a SaaS-style operations dashboard for managing projects, users, tasks, activity logs, and product metrics with a clean React and Next.js interface.",
-    stack: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
-    problem: "Product and operations teams need one reliable workspace to track project health, user activity, ownership, and task progress without jumping between disconnected tools.",
-    solution: "Built a role-aware dashboard concept with authenticated views, structured data tables, project status tracking, task workflows, activity feeds, and metric cards backed by Supabase.",
-    features: [
-      "Project, task, and user management views",
-      "Role-aware dashboard sections",
-      "Searchable and filterable data tables",
-      "Activity timeline for operational updates",
-      "Status cards for product and team metrics",
-      "Responsive interface for desktop and mobile workflows"
-    ],
-    techDecisions: [
-      "Used Next.js and TypeScript for route structure, typed data models, and maintainable UI logic",
-      "Used Supabase and PostgreSQL for authentication-ready data storage and relational project records",
-      "Used Tailwind CSS for a consistent dashboard layout with reusable cards, tables, and status elements",
-      "Kept the interface focused on operational clarity: fast scanning, clear hierarchy, and predictable actions"
-    ],
-    learnings: [
-      "Designing information-dense dashboards that remain readable",
-      "Structuring product data around real user workflows instead of isolated screens",
-      "Balancing frontend polish with backend-ready data modelling"
-    ]
-  },
-  {
     slug: "direct-mail-optimisation",
     title: "Direct Mail Acquisition Optimisation",
     category: "Analytics",
@@ -94,5 +96,13 @@ export const projects: Project[] = [
       "Measuring the unobservable 'counterfactual' in marketing interventions",
       "Designing rigorous A/B testing frameworks in production"
     ]
+  }
+];
+
+export const projectMentions: ProjectMention[] = [
+  {
+    title: "ProductOps Dashboard",
+    summary: "Designed a SaaS-style operations dashboard for managing projects, users, tasks, activity logs, and product metrics with a clean React and Next.js interface.",
+    stack: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"]
   }
 ];
