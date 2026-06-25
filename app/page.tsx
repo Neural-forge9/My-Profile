@@ -1,4 +1,4 @@
-import { projects } from "@/data/projects";
+import { projectMentions, projects } from "@/data/projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { skills } from "@/data/skills";
 import { ExperienceSection } from "@/components/ExperienceSection";
@@ -6,6 +6,7 @@ import { ArrowUpRight, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import { StatusBadge } from "@/components/StatusBadge";
 import { PortfolioSection } from "@/components/PortfolioSection";
+import { SurfaceCard } from "@/components/SurfaceCard";
 
 export default function Home() {
   return (
@@ -70,12 +71,41 @@ export default function Home() {
             title="Featured Projects"
             description="Projects focused on React, Next.js, TypeScript, full-stack workflows, analytics, and user-facing software systems."
           >
-            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border bg-border/60">
+            <div className="grid grid-cols-1 gap-4">
               {projects.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </div>
           </PortfolioSection>
+
+          <section className="space-y-5">
+            <h2 className="text-3xl font-normal tracking-[-0.03em] text-foreground">
+              More Project mentions:
+            </h2>
+            <div className="grid gap-3">
+              {projectMentions.map((project) => (
+                <SurfaceCard key={project.title} className="p-5">
+                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div className="space-y-3">
+                      <h3 className="text-2xl font-normal tracking-[-0.03em] text-foreground">
+                        {project.title}
+                      </h3>
+                      <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+                        {project.summary}
+                      </p>
+                    </div>
+                    <div className="flex max-w-xl flex-wrap gap-1.5 md:justify-end">
+                      {project.stack.map((tech) => (
+                        <StatusBadge key={tech} className="px-2.5 py-1">
+                          {tech}
+                        </StatusBadge>
+                      ))}
+                    </div>
+                  </div>
+                </SurfaceCard>
+              ))}
+            </div>
+          </section>
 
           <div id="experience">
             <ExperienceSection />
